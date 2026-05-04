@@ -1,0 +1,567 @@
+@font-face {
+  font-family: "vazir";
+  src: url("../fonts/Vazir-s.p.b2804e31.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 2800px;
+  font-family: "vazir",monospace,sans-serif;
+}
+
+body {
+  font-family: "Tahoma", sans-serif;
+}
+
+header > section {
+  display: grid;
+  grid-template-columns: 2fr 7fr 2fr 2fr;
+  border-radius: 12px;
+  padding: 15px 1px 15px 5px;
+  margin: 20px 10% 10px 10%;
+  background-color: #fff;
+  box-shadow: 8px 9px 13px 10px rgb(67 9 9 / 10%);
+}
+
+.imageHeader img {
+  max-width: 120px;
+  height: auto;
+}
+.imageHeader img:hover {
+  transform: scale(1.4) rotate(-20deg);
+  transition: all 2s;
+}
+
+.navHeader {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navHeader li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.navHeader li a:hover {
+  color: #199004;
+  border-bottom: 2px solid #00ff2f;
+}
+.navHeader li:hover {
+  transform: scale(1.4);
+  transition: all 2s;
+}
+
+.phoneNumber {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 98%;
+  width: 80%;
+}
+
+.phoneNumber p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.phoneNumber i {
+  color: #1e2f42;
+}
+
+.leftBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85%;
+  width: 70%;
+}
+
+.headerButton {
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  height: 95%;
+  width: 80%;
+  transition: 0.9s;
+}
+
+.headerButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.slider-main {
+  max-width: 75vw;
+  height: auto;
+  margin: 30px 10% 30px 10%;
+  position: relative;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: auto;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.6s ease,
+    visibility 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide img {
+  object-fit: cover;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 45%;
+  transform: translateY(20%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: 0.4s;
+  z-index: 10;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgb(0, 0, 0);
+  transform: translateX(8px);
+}
+
+.prev {
+  right: 30px;
+}
+.next {
+  left: 30px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.6rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+.dot.active {
+  background-color: #004d9f;
+  width: 25px;
+  border-radius: 5px;
+}
+
+.defaultProducts {
+  position: relative;
+  max-width: 75vw;
+  margin: 50px auto;
+  padding: 10px;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "title title title seeAllp"
+    "desc desc desc seeAllp"
+    "item1 item2 item3 item4";
+}
+
+.defaultProducts h1 {
+  grid-area: title;
+  text-align: center;
+  padding-right: 40%;
+}
+
+.defaultProducts > p {
+  grid-area: desc;
+  text-align: center;
+  font-size: 0.9rem;
+  padding-bottom: 20px;
+  padding-right: 40%;
+}
+.seeAllProducts {
+  grid-area: seeAllp;
+  background: transparent;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 41%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+}
+.seeAllProducts i {
+  font-size: 12px;
+  color: #555;
+}
+
+.defaultProducts > section:nth-child(4) {
+  grid-area: item1;
+}
+
+.defaultProducts > section:nth-child(5) {
+  grid-area: item2;
+}
+
+.defaultProducts > section:nth-child(6) {
+  grid-area: item3;
+}
+
+.defaultProducts > section:nth-child(7) {
+  grid-area: item4;
+}
+
+.defaultProducts > section {
+  border-radius: 12px;
+  max-height: 30rem;
+  box-shadow: 11px 12px 12px 1px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem;
+}
+.defaultProducts > section:hover {
+  transform: translate(1rem) scale(1.1);
+  transition: all 0.5s;
+}
+
+.defaultProducts > section img {
+  width: 100%;
+  height: 75%;
+  background-color: transparent;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.defaultProducts section > h1 {
+  font-size: 18px;
+  color: #000000;
+  text-align: start;
+  padding: 0 3% 3%;
+  margin: 0;
+}
+
+.defaultProducts > section h5 {
+  font-size: 16px;
+  color: #4e6072;
+  margin: 5px 0 0 0;
+  text-align: start;
+  font-weight: bold;
+  padding-right: 0%;
+  margin: 0 0%;
+}
+
+.circle-arrow {
+  background-color: #13ee79;
+  color: rgb(0, 100, 9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 80%;
+  margin-bottom: 20px;
+}
+
+/* بخش سوم */
+.thirdSection {
+  max-width: 75vw;
+  margin: 0.5rem auto;
+  display: grid;
+  grid-template-areas:
+    "title title title title"
+    "desc desc desc desc"
+    "item1 item2 item3 item4";
+  gap: 20px;
+}
+.thirdSection h1 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.thirdSection h1::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 10%;
+  height: 2px;
+  background-color: #00ff2f;
+}
+
+.thirdSection > section:nth-child(2) {
+  grid-area: item1;
+}
+
+.thirdSection > section:nth-child(3) {
+  grid-area: item2;
+}
+
+.thirdSection > section:nth-child(4) {
+  grid-area: item3;
+}
+
+.thirdSection > section:nth-child(5) {
+  grid-area: item4;
+}
+
+.thirdSection > section {
+  background-color: #fff;
+  border-radius: 12px;
+  max-width: 95%;
+  max-height: 90%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  text-align: center;
+  padding: 20px;
+  grid-area: sections;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 15px;
+  align-items: center;
+}
+
+.thirdSection > section div:first-child {
+  text-align: right;
+}
+
+.thirdSection > section h2 {
+  font-size: 20px;
+  color: #333;
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.thirdSection > section p {
+  font-size: 16px;
+  color: #4e6072;
+  margin: 0;
+  text-align: center;
+  text-wrap: pretty;
+  font-weight: bold;
+  grid-area: paraThirdSec;
+}
+
+.thirdSection .circle-arrow {
+  width: 3rem;
+  height: 3rem;
+  background-color: #8cf1b9;
+  color: rgb(12, 0, 49);
+  border-radius: 12px 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* gallery pic */
+
+.galleryPictures {
+  max-width: 75vw;
+  margin: 50px auto;
+  padding: 0 10px;
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    ". title title seeAll"
+    "item1 item2 item3 item4";
+  grid-auto-columns: 1fr;
+  position: relative;
+}
+
+.galleryPictures h1 {
+  grid-area: title;
+  justify-self: center;
+  background-color: rgb(255, 255, 255);
+  font-size: 32px;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.galleryPictures h1::after {
+  content: "";
+  position: absolute;
+  top: 60%;
+  right: 50%;
+  transform: translateX(50%);
+  width: 50%;
+  height: 2px;
+  background-color: #00ff2f;
+}
+
+.seeAllPic {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 20px auto 40px 0.1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  grid-area: seeAll;
+}
+.seeAllPic i {
+  font-size: 12px;
+  color: #444;
+}
+.galleryPictures > section:nth-child(3) {
+  grid-area: item1;
+}
+
+.galleryPictures > section:nth-child(4) {
+  grid-area: item2;
+}
+
+.galleryPictures > section:nth-child(5) {
+  grid-area: item3;
+}
+
+.galleryPictures > section:nth-child(6) {
+  grid-area: item4;
+}
+
+.galleryPictures > section {
+  background-color: transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  text-align: center;
+  padding: 10px;
+  grid-area: sections;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 250px;
+  margin-top: 20px;
+}
+
+.paragraphsMain {
+  font-size: 15px;
+  color: #333;
+  text-align: start;
+  margin: 10px 35px 5px;
+}
+
+.galleryPictures > section p {
+  font-size: 16px;
+  color: #4e6072;
+  margin: 5px 0 0 0;
+  text-align: start;
+  margin: 10px 30px;
+  font-weight: bold;
+}
+
+.circle-arrow {
+  width: 40px;
+  height: 40px;
+  background-color: #75eaac;
+  color: rgb(12, 0, 49);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 80%;
+  margin-bottom: 20px;
+}
+
+/* فوتر */
+
+.foot1 {
+  background: #dbfeff;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.foot2 {
+  background: rgb(0, 0, 55);
+  color: #e0e0e0;
+  text-align: center;
+  padding: 1% 0;
+}
+.foot2 {
+  width: 100vw;
+}
+.fastAccess {
+  margin: 40px 100px;
+  line-height: 3rem;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+}
+.fastAccess p {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #1e2f42;
+  text-align: start;
+  background-color: transparent;
+  grid-column-start: 1;
+}
+
+.fastAccess ul {
+  padding-right: 4%;
+  margin: 0;
+}
+
+.mainFooter {
+  background-color: red;
+}
+
+.brands {
+  background-color: blue;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
