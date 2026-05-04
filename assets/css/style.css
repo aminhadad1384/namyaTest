@@ -8,7 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   max-width: 2800px;
-  font-family: "vazir",monospace,sans-serif;
+  font-family: "vazir", monospace, sans-serif;
 }
 
 body {
@@ -144,8 +144,8 @@ header > section {
   position: absolute;
   top: 45%;
   transform: translateY(20%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: rgb(238, 238, 238);
+  color: rgb(0, 0, 0);
   border: none;
   padding: 12px 18px;
   font-size: 20px;
@@ -157,6 +157,7 @@ header > section {
 .prev:hover,
 .next:hover {
   background-color: rgb(0, 0, 0);
+  color: white;
   transform: translateX(8px);
 }
 
@@ -189,6 +190,81 @@ header > section {
   border-radius: 5px;
 }
 
+/* default product */
+
+.defaultProducts {
+  max-width: 75vw;
+  margin: 3px auto -140px auto;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: transparent;
+}
+.defaultProductsHeader {
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  justify-items: center;
+}
+
+.seeAllProducts {
+  background: transparent;
+  border: 1px solid #777777;
+  border-radius: 10px;
+  padding: 5px 20px;
+  font-size: 14px;
+  text-wrap: nowrap;
+  font-weight: 500;
+  color: #444;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  gap: 4px;
+  margin: 10px auto 20px 0.1rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media screen and (max-width: 830px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+.productItem {
+  grid-template-rows: 1fr 1fr;
+  justify-content: space-around;
+}
+.productItem img {
+  width: 100%;
+  height: 40%;
+  object-fit: contain;
+}
+.productItem span {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+.productItem span > section {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+}
+
+.circle-arrow {
+  background-color: #5ff5a53a;
+  color: rgb(0, 100, 9);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+/*
 .defaultProducts {
   position: relative;
   max-width: 75vw;
@@ -239,22 +315,6 @@ header > section {
   color: #555;
 }
 
-.defaultProducts > section:nth-child(4) {
-  grid-area: item1;
-}
-
-.defaultProducts > section:nth-child(5) {
-  grid-area: item2;
-}
-
-.defaultProducts > section:nth-child(6) {
-  grid-area: item3;
-}
-
-.defaultProducts > section:nth-child(7) {
-  grid-area: item4;
-}
-
 .defaultProducts > section {
   border-radius: 12px;
   max-height: 30rem;
@@ -291,107 +351,62 @@ header > section {
   padding-right: 0%;
   margin: 0 0%;
 }
+*/
 
-.circle-arrow {
-  background-color: #13ee79;
-  color: rgb(0, 100, 9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-right: 80%;
-  margin-bottom: 20px;
-}
+/* why we need */
 
-/* بخش سوم */
-.thirdSection {
+.why {
+  background-color: white;
   max-width: 75vw;
-  margin: 0.5rem auto;
+  margin: 3vh auto;
   display: grid;
-  grid-template-areas:
-    "title title title title"
-    "desc desc desc desc"
-    "item1 item2 item3 item4";
-  gap: 20px;
-}
-.thirdSection h1 {
-  grid-column: 1 / -1;
   text-align: center;
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 40px;
-  position: relative;
+  grid-template-rows: auto 1fr;
+  box-shadow: 7px 9px 15px 9px rgba(0, 0, 0, 0.05);
 }
 
-.thirdSection h1::after {
+.why h1 {
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.why h1::after {
   content: "";
   position: absolute;
-  bottom: -30px;
-  right: 50%;
-  transform: translateX(50%);
-  width: 10%;
-  height: 2px;
-  background-color: #00ff2f;
+  bottom: -8px;
+  right: 42%;
+  width: 10vw;
+  height: 3px;
+  background-color: green;
 }
 
-.thirdSection > section:nth-child(2) {
-  grid-area: item1;
-}
-
-.thirdSection > section:nth-child(3) {
-  grid-area: item2;
-}
-
-.thirdSection > section:nth-child(4) {
-  grid-area: item3;
-}
-
-.thirdSection > section:nth-child(5) {
-  grid-area: item4;
-}
-
-.thirdSection > section {
-  background-color: #fff;
-  border-radius: 12px;
-  max-width: 95%;
-  max-height: 90%;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
-  text-align: center;
-  padding: 20px;
-  grid-area: sections;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 15px;
-  align-items: center;
-}
-
-.thirdSection > section div:first-child {
-  text-align: right;
-}
-
-.thirdSection > section h2 {
-  font-size: 20px;
-  color: #333;
-  margin: 0 0 10px 0;
-  text-align: center;
-  font-weight: bold;
-}
-
-.thirdSection > section p {
-  font-size: 16px;
-  color: #4e6072;
+#reasons {
+  background-color: transparent;
   margin: 0;
-  text-align: center;
-  text-wrap: pretty;
-  font-weight: bold;
-  grid-area: paraThirdSec;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
-.thirdSection .circle-arrow {
-  width: 3rem;
-  height: 3rem;
+@media screen and (max-width: 830px) {
+  #reasons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reasonItems {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  text-align: center;
+}
+.reasonItems > div > p {
+  font-size: small;
+}
+.rect-arrow {
+  width: 70px;
+  height: 70px;
   background-color: #8cf1b9;
   color: rgb(12, 0, 49);
   border-radius: 12px 1px;
@@ -400,168 +415,150 @@ header > section {
   justify-content: center;
   cursor: pointer;
   margin: 0;
-  flex-shrink: 0;
+}
+.rect-arrow i {
+  font-size: x-large;
 }
 
 /* gallery pic */
 
 .galleryPictures {
+  background-color: transparent;
+  margin: 3vh auto;
   max-width: 75vw;
-  margin: 50px auto;
-  padding: 0 10px;
   display: grid;
-  position: relative;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    ". title title seeAll"
-    "item1 item2 item3 item4";
-  grid-auto-columns: 1fr;
-  position: relative;
+  grid-template-rows: auto auto;
 }
 
-.galleryPictures h1 {
-  grid-area: title;
-  justify-self: center;
-  background-color: rgb(255, 255, 255);
-  font-size: 32px;
+.galleryDetails {
+  display: grid;
+  margin-bottom: 2rem;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-items: end;
+}
+.galleryDetails h1 {
+  background-color: transparent;
+  font-weight: bold;
   color: #333;
-  background-color: rgb(255, 255, 255);
-  margin-bottom: 5px;
+  text-align: left;
   position: relative;
+  display: inline-block;
 }
 
-.galleryPictures h1::after {
+.galleryDetails h1::after {
   content: "";
   position: absolute;
-  top: 60%;
-  right: 50%;
-  transform: translateX(50%);
+  bottom: -10px;
+  left: 25%;
   width: 50%;
-  height: 2px;
-  background-color: #00ff2f;
+  height: 3px;
+  background-color: green;
+  border-radius: 2px;
 }
 
 .seeAllPic {
-  background: white;
-  border: 1px solid #ddd;
+  background: transparent;
+  border: 1px solid #777777;
   border-radius: 10px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-size: 14px;
   font-weight: 500;
   color: #444;
   cursor: pointer;
-  display: inline-flex;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   align-items: center;
   gap: 4px;
-  margin: 20px auto 40px 0.1rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  grid-area: seeAll;
+  margin: 10px auto 20px 0.1rem;
 }
 .seeAllPic i {
   font-size: 12px;
   color: #444;
 }
-.galleryPictures > section:nth-child(3) {
-  grid-area: item1;
-}
 
-.galleryPictures > section:nth-child(4) {
-  grid-area: item2;
-}
-
-.galleryPictures > section:nth-child(5) {
-  grid-area: item3;
-}
-
-.galleryPictures > section:nth-child(6) {
-  grid-area: item4;
-}
-
-.galleryPictures > section {
-  background-color: transparent;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
-  text-align: center;
-  padding: 10px;
-  grid-area: sections;
+.pictures {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  height: 250px;
-  margin-top: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2vw;
+}
+.galleryImages {
+  box-shadow: 5px 1px 13px 2px rgb(67 9 9 / 10%);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 
-.paragraphsMain {
-  font-size: 15px;
-  color: #333;
-  text-align: start;
-  margin: 10px 35px 5px;
-}
-
-.galleryPictures > section p {
-  font-size: 16px;
-  color: #4e6072;
-  margin: 5px 0 0 0;
-  text-align: start;
-  margin: 10px 30px;
-  font-weight: bold;
-}
-
-.circle-arrow {
-  width: 40px;
-  height: 40px;
-  background-color: #75eaac;
-  color: rgb(12, 0, 49);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin-right: 80%;
-  margin-bottom: 20px;
-}
-
-/* فوتر */
+/* footer */
 
 .foot1 {
   background: #dbfeff;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 1.5% 0;
 }
 .foot2 {
   background: rgb(0, 0, 55);
   color: #e0e0e0;
   text-align: center;
   padding: 1% 0;
-}
-.foot2 {
   width: 100vw;
 }
 .fastAccess {
-  margin: 40px 100px;
-  line-height: 3rem;
+  text-indent: 18%;
+  list-style-position: inside;
+  line-height: 2.4rem;
   display: grid;
   grid-template-rows: repeat(2, auto);
+  margin: 0;
+  padding: 0;
+}
+.fastAccess a {
+  text-decoration: none;
+  color: #1e2f42;
 }
 .fastAccess p {
   font-weight: bold;
   font-size: 1.5rem;
+  align-content: center;
   color: #1e2f42;
   text-align: start;
   background-color: transparent;
-  grid-column-start: 1;
-}
-
-.fastAccess ul {
-  padding-right: 4%;
   margin: 0;
 }
 
 .mainFooter {
-  background-color: red;
+  display: grid;
+  justify-items: center;
+  align-content: space-between;
+}
+.mainFooter span {
+  text-align: center;
+  font-weight: bold;
+  margin: -9vh;
+}
+div .circle-arrow-footer {
+  border-radius: 100%;
+  width: 70%;
+  height: 165%;
+  color: white;
+  background-color: rgb(24, 2, 193);
+  text-align: center;
+  align-content: center;
+}
+.brands > div:first-child {
+  background-color: rgb(4, 171, 4);
+}
+.brands {
+  margin: -7vh;
+  display: grid;
+  width: 180px;
+  height: 70px;
+  grid-template-columns: repeat(3, 1fr);
+  padding-bottom: 5vh;
 }
 
-.brands {
-  background-color: blue;
+.callDetailsItems {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 2vw;
 }
