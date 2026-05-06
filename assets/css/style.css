@@ -15,142 +15,204 @@ body {
   font-family: "Tahoma", sans-serif;
 }
 
-header > section {
+/* header */
+
+.header {
   display: grid;
-  grid-template-columns: 2fr 7fr 2fr 2fr;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  top: 10px;
+  grid-template-areas: "headImg headNav headNav headNav  leftSide";
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: transparent;
   border-radius: 12px;
-  padding: 15px 1px 15px 5px;
-  margin: 20px 10% 10px 10%;
-  background-color: #fff;
   box-shadow: 8px 9px 13px 10px rgb(67 9 9 / 10%);
+  width: 75vw;
+  height: 10vh;
+  margin: 30px 12% 30px 12%;
+}
+@media screen and (max-width: 850px) {
+  .header {
+    display: grid;
+    grid-template-areas: "headImg";
+  }
+  .imageHeader {
+    animation: slideOnce 4s cubic-bezier(1, -0.72, 0.06, 1.32) forwards;
+  }
+  @keyframes slideOnce {
+    0% {
+      transform: translate(0) scale(0.8);
+    }
+    100% {
+      transform: translate(-30vw) scale(2);
+    }
+  }
+  .leftSide {
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .header {
+    grid-template-areas: "headImg  leftSide";
+  }
+  .imageHeader {
+    background-color: red;
+  }
+  .navHeader {
+    visibility: hidden;
+  }
 }
 
-.imageHeader img {
-  max-width: 120px;
-  height: auto;
+.imageHeader {
+  grid-area: headImg;
+  background-color: transparent;
+  max-width: 12vw;
+  max-height: 10vh;
+  align-content: stretch;
 }
+.imageHeader img {
+  background-color: transparent;
+  object-fit: scale-down;
+  height: 100%;
+  width: 100%;
+}
+
 .imageHeader img:hover {
-  transform: scale(1.4) rotate(-20deg);
+  transform: scale(1.2) rotate(20deg);
   transition: all 2s;
 }
 
 .navHeader {
+  grid-area: headNav;
   display: flex;
   list-style: none;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+  margin: -1vh -4vw;
+  height: 10vh;
+  width: 25vw;
+  background-color: transparent;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: dotted;
 }
 
-.navHeader li a {
+.navHeader a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.3s;
-  position: relative;
-  padding-bottom: 5px;
+  color: black;
+  font-weight: bold;
 }
 
 .navHeader li a:hover {
-  color: #199004;
-  border-bottom: 2px solid #00ff2f;
+  color: rgb(0, 147, 0);
+  background-image: radial-gradient(
+    circle at center,
+    rgb(0, 147, 0) 3px,
+    transparent 5px
+  );
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 8px 8px;
+  padding-bottom: 12px;
 }
-.navHeader li:hover {
-  transform: scale(1.4);
-  transition: all 2s;
+.leftSide {
+  grid-area: leftSide;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .phoneNumber {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 98%;
-  width: 80%;
+  display: grid;
+  align-content: center;
+  align-items: baseline;
+  justify-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  height: 10vh;
+  background-color: transparent;
+  gap: 0;
 }
-
 .phoneNumber p {
-  margin: 0;
-  color: #333;
-  font-size: 16px;
+  background-color: transparent;
+  justify-self: center;
+  text-wrap: nowrap;
 }
-
 .phoneNumber i {
-  color: #1e2f42;
+  background-color: transparent;
+  width: 50px;
 }
-
 .leftBtn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 85%;
-  width: 70%;
+  position: relative;
+  background-color: transparent;
 }
-
+.leftBtn :hover {
+  transform: translate(-20px, -20px);
+  transition: 2s;
+  box-shadow: 8px 9px 13px 10px rgb(67 9 9 / 10%);
+}
 .headerButton {
-  padding: 8px 10px;
-  border-radius: 8px;
+  height: 10vh;
+  position: absolute;
+  left: 30px;
+  background-color: rgb(0, 0, 189);
   color: white;
-  border: none;
-  height: 95%;
-  width: 80%;
-  transition: 0.9s;
+  border-radius: 10px;
+  width: 86%;
+  height: 58%;
+  margin-top: 9%;
 }
 
-.headerButton:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
+
+/* slider */
 
 .slider-main {
   max-width: 75vw;
   height: auto;
-  margin: 30px 10% 30px 10%;
+  margin: 30px auto 30px auto;
   position: relative;
 }
 
 .slider-container {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   overflow: auto;
-  border-radius: 25px;
+  border-radius: 24px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .slide {
   position: absolute;
-  top: 0;
-  right: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  visibility: hidden;
   transition:
     opacity 0.6s ease,
     visibility 0.5s ease;
 }
 
 .slide.active {
-  opacity: 1;
-  visibility: visible;
+  opacity: 5;
+  /* visibility: visible; */
 }
 
 .slide img {
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
 }
 
 .prev,
 .next {
   position: absolute;
-  top: 45%;
-  transform: translateY(20%);
+  top: 40%;
+  transform: translateY(12%);
   background-color: rgb(238, 238, 238);
   color: rgb(0, 0, 0);
   border: none;
   padding: 12px 18px;
   font-size: 20px;
   border-radius: 50%;
-  transition: 0.4s;
+  transition: 0.5s;
   z-index: 10;
 }
 
@@ -158,14 +220,14 @@ header > section {
 .next:hover {
   background-color: rgb(0, 0, 0);
   color: white;
-  transform: translateX(8px);
+  transform: translateX(12px);
 }
 
 .prev {
-  right: 30px;
+  right: 20px;
 }
 .next {
-  left: 30px;
+  left: 20px;
 }
 
 .dots {
@@ -202,8 +264,12 @@ header > section {
 .defaultProductsHeader {
   background-color: transparent;
   display: grid;
-  grid-template-columns: 9fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+}
+
+.defaultProductsHeader span {
+  grid-column: 2 / span 1;
 }
 
 .seeAllProducts {
@@ -220,6 +286,11 @@ header > section {
   align-items: center;
   gap: 4px;
   margin: 10px auto 20px 0.1rem;
+  height: 5vh;
+}
+
+.defaultProductsHeader span {
+  text-wrap: nowrap;
 }
 
 .products {
@@ -232,6 +303,9 @@ header > section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+  }
+  .defaultProductsHeader span p {
+    visibility: hidden;
   }
 }
 .productItem {
@@ -264,95 +338,6 @@ header > section {
   cursor: pointer;
   margin-bottom: 20px;
 }
-/*
-.defaultProducts {
-  position: relative;
-  max-width: 75vw;
-  margin: 50px auto;
-  padding: 10px;
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    "title title title seeAllp"
-    "desc desc desc seeAllp"
-    "item1 item2 item3 item4";
-}
-
-.defaultProducts h1 {
-  grid-area: title;
-  text-align: center;
-  padding-right: 40%;
-}
-
-.defaultProducts > p {
-  grid-area: desc;
-  text-align: center;
-  font-size: 0.9rem;
-  padding-bottom: 20px;
-  padding-right: 40%;
-}
-.seeAllProducts {
-  grid-area: seeAllp;
-  background: transparent;
-  border: 2px solid #e0e0e0;
-  border-radius: 15px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #555;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  width: 41%;
-  height: 50%;
-  position: absolute;
-  left: 0;
-}
-.seeAllProducts i {
-  font-size: 12px;
-  color: #555;
-}
-
-.defaultProducts > section {
-  border-radius: 12px;
-  max-height: 30rem;
-  box-shadow: 11px 12px 12px 1px rgba(0, 0, 0, 0.08);
-  padding: 0.5rem;
-}
-.defaultProducts > section:hover {
-  transform: translate(1rem) scale(1.1);
-  transition: all 0.5s;
-}
-
-.defaultProducts > section img {
-  width: 100%;
-  height: 75%;
-  background-color: transparent;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.defaultProducts section > h1 {
-  font-size: 18px;
-  color: #000000;
-  text-align: start;
-  padding: 0 3% 3%;
-  margin: 0;
-}
-
-.defaultProducts > section h5 {
-  font-size: 16px;
-  color: #4e6072;
-  margin: 5px 0 0 0;
-  text-align: start;
-  font-weight: bold;
-  padding-right: 0%;
-  margin: 0 0%;
-}
-*/
-
 /* why we need */
 
 .why {
@@ -363,6 +348,7 @@ header > section {
   text-align: center;
   grid-template-rows: auto 1fr;
   box-shadow: 7px 9px 15px 9px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
 }
 
 .why h1 {
@@ -407,7 +393,7 @@ header > section {
 .rect-arrow {
   width: 70px;
   height: 70px;
-  background-color: #8cf1b9;
+  background-color: hsla(0, 0%, 82%, 0.248);
   color: rgb(12, 0, 49);
   border-radius: 12px 1px;
   display: flex;
@@ -433,7 +419,7 @@ header > section {
 .galleryDetails {
   display: grid;
   margin-bottom: 2rem;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: end;
 }
@@ -441,9 +427,12 @@ header > section {
   background-color: transparent;
   font-weight: bold;
   color: #333;
+  text-wrap: nowrap;
   text-align: left;
   position: relative;
   display: inline-block;
+  grid-column: 2 / span 1;
+  justify-self: center;
 }
 
 .galleryDetails h1::after {
@@ -481,6 +470,25 @@ header > section {
   grid-template-columns: repeat(5, 1fr);
   gap: 1.2vw;
 }
+
+@media screen and (max-width: 1030px) {
+  .pictures {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .pictures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .seeAllPic{
+    width: 15vw;
+    height: 8vw;
+    font-size:x-small;
+  }
+
+}
+
 .galleryImages {
   box-shadow: 5px 1px 13px 2px rgb(67 9 9 / 10%);
   width: 100%;
@@ -561,4 +569,13 @@ div .circle-arrow-footer {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 2vw;
+}
+
+@media screen and (max-width: 830px) {
+  .mainFooter {
+    display: none;
+  }
+  .foot1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
