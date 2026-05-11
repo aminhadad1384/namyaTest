@@ -56,3 +56,5 @@ if (nextBtn && prevBtn) {
 }
 
 createDots();
+
+console.log(window.innerWidth);

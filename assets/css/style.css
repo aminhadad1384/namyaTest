@@ -7,12 +7,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 2800px;
   font-family: "vazir", monospace, sans-serif;
 }
 
 body {
-  font-family: "Tahoma", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  background-color: rgba(231, 231, 231, 0.551) !important;
 }
 
 /* header */
@@ -20,19 +22,20 @@ body {
 .header {
   display: grid;
   position: fixed;
-  backdrop-filter: blur(10px);
+  background-color: #ffffff7d;
+  backdrop-filter: blur(50px);
   z-index: 100;
   top: 10px;
   grid-template-areas: "headImg headNav headNav headNav  leftSide";
   justify-content: space-between;
   align-items: stretch;
-  background-color: transparent;
   border-radius: 12px;
-  box-shadow: 8px 9px 13px 10px rgb(67 9 9 / 10%);
-  width: 75vw;
+  box-shadow: 2px 6px 12px 7px rgba(67, 9, 9, 0.068);
+  width: 76vw;
   height: 10vh;
   margin: 30px 12% 30px 12%;
 }
+
 @media screen and (max-width: 850px) {
   .header {
     display: grid;
@@ -56,9 +59,6 @@ body {
 @media screen and (max-width: 1100px) {
   .header {
     grid-template-areas: "headImg  leftSide";
-  }
-  .imageHeader {
-    background-color: red;
   }
   .navHeader {
     visibility: hidden;
@@ -124,43 +124,38 @@ body {
 .phoneNumber {
   display: grid;
   align-content: center;
-  align-items: baseline;
-  justify-items: stretch;
+  align-items: center;
+  justify-items: baseline;
   grid-template-columns: 1fr 1fr;
   height: 10vh;
-  background-color: transparent;
   gap: 0;
 }
 .phoneNumber p {
-  background-color: transparent;
   justify-self: center;
   text-wrap: nowrap;
+  margin-top: 20%;
 }
 .phoneNumber i {
-  background-color: transparent;
   width: 50px;
 }
 .leftBtn {
   position: relative;
-  background-color: transparent;
 }
 .leftBtn :hover {
-  transform: translate(-20px, -20px);
+  transform: translate(10px, -10px);
   transition: 2s;
-  box-shadow: 8px 9px 13px 10px rgb(67 9 9 / 10%);
 }
 .headerButton {
   height: 10vh;
   position: absolute;
   left: 30px;
-  background-color: rgb(0, 0, 189);
+  background-color: rgb(33, 33, 247);
   color: white;
   border-radius: 10px;
   width: 86%;
   height: 58%;
   margin-top: 9%;
 }
-
 
 /* slider */
 
@@ -178,6 +173,7 @@ body {
   overflow: auto;
   border-radius: 24px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .slide {
@@ -192,7 +188,6 @@ body {
 
 .slide.active {
   opacity: 5;
-  /* visibility: visible; */
 }
 
 .slide img {
@@ -234,7 +229,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
 }
 
 .dot {
@@ -247,8 +242,8 @@ body {
 }
 
 .dot.active {
-  background-color: #004d9f;
-  width: 25px;
+  background-color: #2aa900 !important;
+  width: 15px;
   border-radius: 5px;
 }
 
@@ -256,13 +251,12 @@ body {
 
 .defaultProducts {
   max-width: 75vw;
-  margin: 3px auto -140px auto;
+  margin: 60px auto 10px auto;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr auto;
   background-color: transparent;
 }
 .defaultProductsHeader {
-  background-color: transparent;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
@@ -281,8 +275,9 @@ body {
   text-wrap: nowrap;
   font-weight: 500;
   color: #444;
+  background-color: #f7f5f588;
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
   align-items: center;
   gap: 4px;
   margin: 10px auto 20px 0.1rem;
@@ -291,41 +286,46 @@ body {
 
 .defaultProductsHeader span {
   text-wrap: nowrap;
+  text-align: center;
 }
 
 .products {
   display: grid;
+  background-color: transparent;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  column-gap: 10px;
 }
-@media screen and (max-width: 830px) {
-  .products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  .defaultProductsHeader span p {
-    visibility: hidden;
-  }
-}
+
 .productItem {
-  grid-template-rows: 1fr 1fr;
-  justify-content: space-around;
+  grid-template-rows: auto auto;
+  padding: 3px 5px 0;
+  height: 80%;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
 }
 .productItem img {
   width: 100%;
   height: 40%;
-  object-fit: contain;
+  object-fit: cover;
+  background-color: rgba(240, 240, 240, 0.933);
+  border-radius: 10px;
 }
 .productItem span {
   display: grid;
   grid-template-rows: 1fr 3fr;
+  text-wrap: nowrap;
+  height: 10%;
 }
 .productItem span > section {
   display: grid;
   grid-template-columns: 6fr 1fr;
+  align-items: center;
 }
-
+.productItem h6 {
+  align-self: center;
+  margin: 0;
+}
 .circle-arrow {
   background-color: #5ff5a53a;
   color: rgb(0, 100, 9);
@@ -338,17 +338,54 @@ body {
   cursor: pointer;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 830px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 15px;
+  }
+  .defaultProductsHeader span p {
+    visibility: hidden;
+  }
+
+  .productItem {
+    min-height: 85%;
+    row-gap: 0;
+  }
+
+  .productItem img {
+    height: auto;
+    max-height: 120px;
+  }
+
+  .productItem span > section {
+    grid-template-columns: 1fr 40px;
+    gap: 10px;
+  }
+
+  .circle-arrow {
+    height: 35px;
+    width: 35px;
+    margin-bottom: 0;
+  }
+
+  .productItem h4,
+  .productItem h6 {
+    font-size: 14px;
+  }
+}
 /* why we need */
 
 .why {
-  background-color: white;
   max-width: 75vw;
-  margin: 3vh auto;
+  margin: auto 12% auto 12%;
   display: grid;
   text-align: center;
   grid-template-rows: auto 1fr;
   box-shadow: 7px 9px 15px 9px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
+  background-color: rgba(248, 241, 241, 0.515);
+  padding-top: 30px;
 }
 
 .why h1 {
@@ -375,35 +412,50 @@ body {
   gap: 10px;
 }
 
-@media screen and (max-width: 830px) {
-  #reasons {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 .reasonItems {
+  height: 12vh;
+  background-color: transparent;
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
   text-align: center;
+  border-radius: 20px;
+  margin: 10px;
 }
 .reasonItems > div > p {
   font-size: small;
+  text-wrap: wrap;
+}
+.reasonItems > div > h4 {
+  text-wrap: nowrap;
 }
 .rect-arrow {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background-color: hsla(0, 0%, 82%, 0.248);
   color: rgb(12, 0, 49);
   border-radius: 12px 1px;
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   cursor: pointer;
   margin: 0;
 }
-.rect-arrow i {
+.rect-arrow {
   font-size: x-large;
+  color: green;
+}
+
+@media screen and (max-width: 1330px) {
+  #reasons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 970px) {
+  #reasons {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* gallery pic */
@@ -453,12 +505,14 @@ body {
   padding: 10px 20px;
   font-size: 14px;
   font-weight: 500;
+  width: auto;
   color: #444;
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   align-items: center;
   gap: 4px;
   margin: 10px auto 20px 0.1rem;
+  text-wrap: nowrap;
 }
 .seeAllPic i {
   font-size: 12px;
@@ -471,6 +525,14 @@ body {
   gap: 1.2vw;
 }
 
+.galleryImages {
+  box-shadow: 5px 1px 13px 2px rgb(67 9 9 / 10%);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+
 @media screen and (max-width: 1030px) {
   .pictures {
     grid-template-columns: repeat(3, 1fr);
@@ -481,28 +543,17 @@ body {
   .pictures {
     grid-template-columns: repeat(2, 1fr);
   }
-  .seeAllPic{
-    width: 15vw;
-    height: 8vw;
-    font-size:x-small;
+  .seeAllPic {
+    visibility: hidden;
   }
-
 }
-
-.galleryImages {
-  box-shadow: 5px 1px 13px 2px rgb(67 9 9 / 10%);
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-
 /* footer */
 
 .foot1 {
-  background: #dbfeff;
+  background: #f0feffcb;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 1.5% 0;
+  padding: 3.5% 0;
 }
 .foot2 {
   background: rgb(0, 0, 55);
